@@ -13,19 +13,13 @@ import {
   Typography,
   IconButton,
 } from "@mui/material";
-export const getStaticProps = async () => {
-  let cart = await fetch("http://localhost:3000/api/get");
-  let data = await cart.json();
 
-  return {
-    props: {
-      data,
-    },
-  };
-};
 
-export default function Cart({ data }) {
-  let [state, setstate] = useState(data);
+export default function Cart() {
+  let [state, setstate] = useState([]);
+  useEffect(()=>{
+    fet();
+  },[])
   function fet() {
     axios.get("/api/get").then((res) => {
       setstate(res.data);
